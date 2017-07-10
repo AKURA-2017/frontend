@@ -1,0 +1,22 @@
+<div class="page-header clear-filter" filter-color="s">
+  <div class="page-header-image" data-parallax="false" style="background-image: url('./assets/img/geometry2.png');    background-size: initial;">
+  </div>
+  <div class="container">
+    <div class="content-center brand">
+      <img class=" " style=" height:150px; width:auto;" src="./assets/img/rev-logo.png" alt="">
+
+      <!--<h3>An Efficient review engine for you</h3>-->
+      <form (ngSubmit)="searchItem()">
+      <div class="input-group form-group-no-border">
+        <input name="search" [(ngModel)]="search" type="text" value="" placeholder="Search Product " class="form-control">
+        <span class="input-group-addon">
+          <i class="fa fa-search"></i>
+        </span>
+      </div>
+
+      <button type="submit" hidden></button>
+      </form>
+    </div>
+
+  </div>
+</div>

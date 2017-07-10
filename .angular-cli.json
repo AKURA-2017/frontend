@@ -19,9 +19,20 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "./assets/css/now-ui-kit.css",
+        "./assets/css/bootstrap.min.css",
+        "./assets/css/demo.css",
+        "styles.scss"
       ],
-      "scripts": [],
+      "scripts": [
+        "./assets/js/core/jquery.3.2.1.min.js",
+        "./assets/js/core/tether.min.js",
+        "./assets/js/core/bootstrap.min.js",
+        "./assets/js/plugins/bootstrap-switch.js",
+        "./assets/js/plugins/nouislider.min.js",
+        "./assets/js/plugins/bootstrap-datepicker.js",
+        "./assets/js/now-ui-kit.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -51,7 +62,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

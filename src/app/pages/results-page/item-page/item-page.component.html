@@ -1,0 +1,84 @@
+<br>
+<br>
+<h1> {{product?.name}}</h1>
+<h6>{{product?.id}}</h6>
+<div class="row">
+  <div class="col-md-6">
+    <img class="rounded img-raised" style="height:auto;" src="https://cdn.macrumors.com/article-new/2016/06/darkspacegrayiphone72.jpg">
+
+  </div>
+  <div class="col-md-6">
+    <h3>Overall Score {{product?.avg_baseScore}}</h3>
+    <h5> {{product?.comparisons?.betterThan?.length}} People recommend this</h5>
+    <h5> {{product?.comparisons?.worseThan?.length}} people condemn this</h5>
+
+    {{product?.comparisons | json}}
+    <br>
+    <br>
+
+    <div class="card card-signup" style="margin:0cm;max-width:100%;">
+      <div class="header header-primary " style="padding-bottom:0cm">
+        <h4 class="title title-up">Properties</h4>
+
+      </div>
+      <div class="card-block">
+        <table class="table table-hover">
+          <thead>
+            <th>Name</th>
+            <th>Value</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of product?.properties">
+              <td>{{x.key}}</td>
+              <td>{{x.value}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-12">
+    <br>
+    <br>
+    <div class="card card-signup" style="margin:0cm;max-width:100%;">
+      <div class="header header-primary " style="padding-bottom:0cm">
+        <h4 class="title title-up">Features</h4>
+
+      </div>
+      <div class="card-block">
+        <table class="table table-hover">
+          <thead>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Recommends</th>
+            <th>Condemns</th>
+            <th> Properties</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of product?.features">
+              <td>{{x.name}}</td>
+              <td>{{x.avg_baseScore}}</td>
+              <td>{{x.comparisons?.betterThan.length}} <br>
+                <p> {{x.comparisons?.betterThan | json}} </p>
+              </td>
+              <td>{{x.comparisons?.worseThan.length}}
+                <br>
+                <p> {{x.comparisons?.worseThan | json}} </p>
+              </td>
+              <td>
+                {{x.properties | json}}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <br>
+
+  </div>
+</div>
