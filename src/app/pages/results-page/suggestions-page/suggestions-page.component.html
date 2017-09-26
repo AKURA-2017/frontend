@@ -1,7 +1,26 @@
 <br>
 <br>
 <h2> Sorry Your Search didn't match any results. </h2>
-<h6>Here are a few Suggestions</h6>
+<h6 *ngIf="entityInstanceList.length > 0">Here are a few Suggestions</h6>
+<h6 *ngIf="entityInstanceList.length == 0">Please seatch something else.</h6>
 
 <br>
-<br> {{entityInstanceList | json}}
+<br>
+
+ 
+<div class="row">
+    
+
+    <div class="col-md-4" *ngFor="let x of entityInstanceList">
+        <div class="card"  style="     
+        background-color: white;" (click)="navigate(x.entityName)">
+            <div class="card-block">
+                <h5 style="display:inline;font-size:1rem"> {{x.entityName | uppercase}}</h5>
+                <button class="btn btn-link btn-sm btn-default pull-right">
+                        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+ 
+</div>

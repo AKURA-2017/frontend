@@ -19,7 +19,7 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "./assets/css/now-ui-kit.css",
+        "./assets/css/paper-kit.css",
         "./assets/css/bootstrap.min.css",
         "./assets/css/demo.css",
         "styles.scss"
@@ -31,7 +31,7 @@
         "./assets/js/plugins/bootstrap-switch.js",
         "./assets/js/plugins/nouislider.min.js",
         "./assets/js/plugins/bootstrap-datepicker.js",
-        "./assets/js/now-ui-kit.js"
+        "./assets/js/paper-kit.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

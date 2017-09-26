@@ -1,36 +1,89 @@
 <br>
-<br>
-<h1> {{product?.name}}</h1>
-<h6>{{product?.id}}</h6>
-<div class="row">
-  <div class="col-md-6">
-    <img class="rounded img-raised" style="height:auto;" src="https://cdn.macrumors.com/article-new/2016/06/darkspacegrayiphone72.jpg">
 
+<h1> {{product?.name | uppercase}} 
+    <!-- <small>{{product?.id}}</small> -->
+</h1>
+<h6></h6>
+<br>
+<div class="row">
+
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-block">
+        <h6>Overall Score</h6>
+        <hr>
+        <div class="row">
+          <div class="col-md-10" style="padding-top:1.5%">
+            <app-progress-bar [score]="product?.avg_baseScore*100 |  number:'2.0-0' "></app-progress-bar>
+          </div>
+          <div class="col-md-2">
+            <p style="display:inline">{{product?.avg_baseScore*100 | number:'2.0-0'}}%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card" *ngIf="getCount(product?.comparisons?.betterThan)> 0">
+          <div class="card-block">
+            <h6>{{getCount(product?.comparisons?.betterThan)}} {{getName(getCount(product?.comparisons?.betterThan))}} say
+              <span class="label label-success"> Better Than</span>
+            </h6>
+            <br>
+
+            <table class="table table-hover table-condensed" style="line-height: 200%;text-align:left">
+              <tbody>
+                <tr *ngFor="let x of product?.comparisons?.betterThan">
+                  <td style="text-align:left"> {{x.name}} </td>
+                  <td style="text-align: left;padding:2.4%;    width: 100px;">
+                    <app-progress-bar [score]="(x.count /getCount(product?.comparisons?.betterThan))*100 |  number:'2.0-0' "></app-progress-bar>
+                  </td>
+                  <td style="text-align: left;">{{(x.count /getCount(product?.comparisons?.betterThan))*100 | number:'2.0-0'}}%</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+        <div class="card" *ngIf="getCount(product?.comparisons?.worseThan) > 0">
+          <div class="card-block">
+            <h6>{{getCount(product?.comparisons?.worseThan)}} {{getName(getCount(product?.comparisons?.worseThan))}} say
+              <span class="label label-danger"> Worse Than</span>
+            </h6>
+            <br>
+
+            <table class="table table-hover table-condensed" style="line-height: 200%;text-align:left">
+              <tbody>
+                <tr *ngFor="let x of product?.comparisons?.worseThan">
+                  <td style="text-align:left"> {{x.name}} </td>
+                  <td style="text-align: left;padding:2.4%;    width: 100px;">
+                    <app-progress-bar [score]="(x.count /getCount(product?.comparisons?.worseThan))*100 |  number:'2.0-0' "></app-progress-bar>
+                  </td>
+                  <td style="text-align: left;">{{(x.count /getCount(product?.comparisons?.worseThan)) *100 | number:'2.0-0'}}%</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
   <div class="col-md-6">
-    <h3>Overall Score {{product?.avg_baseScore}}</h3>
-    <h5> {{product?.comparisons?.betterThan?.length}} People recommend this</h5>
-    <h5> {{product?.comparisons?.worseThan?.length}} people condemn this</h5>
+    <div class="card  ">
 
-    {{product?.comparisons | json}}
-    <br>
-    <br>
-
-    <div class="card card-signup" style="margin:0cm;max-width:100%;">
-      <div class="header header-primary " style="padding-bottom:0cm">
-        <h4 class="title title-up">Properties</h4>
-
-      </div>
       <div class="card-block">
-        <table class="table table-hover">
-          <thead>
-            <th>Name</th>
-            <th>Value</th>
-          </thead>
+        <h6>Properties</h6>
+        <br>
+        <table class="table table-hover table-condensed" style="line-height: 200%;text-align:left">
+
           <tbody>
             <tr *ngFor="let x of product?.properties">
-              <td>{{x.key}}</td>
-              <td>{{x.value}}</td>
+              <td style="text-align: left;padding-left:2%">{{x.key}}</td>
+              <td style="text-align: left;">{{x.value}}</td>
             </tr>
           </tbody>
         </table>
@@ -44,41 +97,98 @@
 
   <div class="col-md-12">
     <br>
-    <br>
-    <div class="card card-signup" style="margin:0cm;max-width:100%;">
-      <div class="header header-primary " style="padding-bottom:0cm">
-        <h4 class="title title-up">Features</h4>
 
-      </div>
-      <div class="card-block">
-        <table class="table table-hover">
-          <thead>
-            <th>Name</th>
-            <th>Score</th>
-            <th>Recommends</th>
-            <th>Condemns</th>
-            <th> Properties</th>
-          </thead>
-          <tbody>
-            <tr *ngFor="let x of product?.features">
-              <td>{{x.name}}</td>
-              <td>{{x.avg_baseScore}}</td>
-              <td>{{x.comparisons?.betterThan.length}} <br>
-                <p> {{x.comparisons?.betterThan | json}} </p>
-              </td>
-              <td>{{x.comparisons?.worseThan.length}}
+
+
+    <h3>Features</h3>
+    <h3><small> This area lists down the features and their comparisons</small></h3>
+    <br>
+
+    <div class="row">
+      <div class="col-md-6" *ngFor="let x of product?.features">
+        <div class="card">
+          <div class="card-block">
+            <div class="row">
+              <div class="col-md-7">
+                <h6 style="display:inline">{{x.name}}</h6>
+              </div>
+              <div class="col-md-3" style="padding-top:1.6%">
+
+                <app-progress-bar [score]="x?.avg_baseScore*100 |  number:'2.0-0' "></app-progress-bar>
+              </div>
+              <div class="col-md-1">
+                <h6 style="display:inline">{{x?.avg_baseScore*100 | number:'2.0-0'}}%</h6>
+              </div>
+            </div>
+
+
+
+            <hr>
+
+            <div class="row">
+              <div class="col-md-12">
                 <br>
-                <p> {{x.comparisons?.worseThan | json}} </p>
-              </td>
-              <td>
-                {{x.properties | json}}
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                <div *ngIf="x?.properties.length> 0">
+                  <h6>Additional Information</h6>
+
+                  <table class="table table-hover table-condensed" style="line-height: 200%;text-align:left">
+
+                    <tbody>
+                      <tr *ngFor="let prop of x?.properties">
+                        <td style="text-align: left; ">{{prop.key}}</td>
+                        <td style="text-align: left;">{{prop.value}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div *ngIf="getCount(x.comparisons?.betterThan) > 0">
+                  <h6> {{getCount(x.comparisons?.betterThan)}} {{getName(getCount(x.comparisons?.betterThan))}} says <span class="label label-success">better than</span>                    </h6>
+                  <br>
+                  <table class="table table-hover table-condensed" style="line-height: 200%;text-align:left">
+
+                    <tbody>
+                      <tr *ngFor="let prod of x.comparisons?.betterThan">
+                        <td style="text-align:left"> {{prod.name}} </td>
+                        <td style="text-align: left;padding:2.4%;    width: 100px;">
+                          <app-progress-bar [score]="(prod.count /getCount(x.comparisons?.betterThan))*100 |  number:'2.0-0' "></app-progress-bar>
+                        </td>
+                        <td style="text-align: left;">{{(prod.count /getCount(x.comparisons?.betterThan))*100 | number:'2.0-0'}}%</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+                <div *ngIf="getCount(x.comparisons?.worseThan) > 0">
+                  <h6> {{getCount(x.comparisons?.worseThan)}} {{getName(getCount(x.comparisons?.worseThan))}} says <span class="label label-danger">worse than</span>                    </h6>
+                  <br>
+                  <table class="table table-hover table-condensed" style="line-height: 200%;text-align:left">
+
+                    <tbody>
+                      <tr *ngFor="let prod of x.comparisons?.worseThan">
+                        <td style="text-align:left"> {{prod.name}} </td>
+                        <td style="text-align: left;padding:2.4%;    width: 100px;">
+                          <app-progress-bar [score]="(prod.count /getCount(x.comparisons?.worseThan))*100 |  number:'2.0-0' "></app-progress-bar>
+                        </td>
+                        <td style="text-align: left;">{{(prod.count /getCount(x.comparisons?.worseThan))*100 | number:'2.0-0'}}%</td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    <br>
     <br>
 
+
+
+
   </div>
-</div>

@@ -1,29 +1,34 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">
-      <img class="img responsive " src="./assets/img/rev-logo.png" alt="" (click)="navigate()">
-    </div>
-    <div class="col-md-10" style="padding-top:3%">
-      <!--<h3>An Efficient review engine for you</h3>-->
-      <form (ngSubmit)="searchItemNav()">
-        <div class="input-group form-group-no-border">
-          <input name="search" [(ngModel)]="search" type="text" value="" placeholder="Search Product " class="form-control">
-          <span class="input-group-addon">
+<div class="row" style="background-color:white">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img class="img img-responsive" style="width: 100%;" src="./assets/img/rev-logo.png" alt="" (click)="navigate()">
+      </div>
+      <div class="col-md-10" style="padding-top:3%">
+        <!--<h3>An Efficient review engine for you</h3>-->
+        <form (ngSubmit)="searchItemNav()">
+          <div class="input-group form-group-no-border">
+            <input name="search" [(ngModel)]="search" style="border: 2px solid lightgrey !important;" type="text" value="" placeholder="Search Product "
+              class="form-control">
+            <span class="input-group-addon" (click)="searchItemNav()">
           <i class="fa fa-search"></i>
         </span>
-        </div>
+          </div>
 
-        <button type="submit" hidden></button>
-      </form>
+          <button type="submit" hidden></button>
+        </form>
+      </div>
     </div>
+   <br>
   </div>
+</div>
+<div class="row"  >
+  <div class="container">
 
-  <div>
-
-    <!--<div *ngIf="loading" class="spinner">
+    <div *ngIf="loading" class="spinner">
       <div class="double-bounce1"></div>
       <div class="double-bounce2"></div>
-    </div>-->
+    </div>
     <app-item-page *ngIf="type === 'ITEM'" [product]="product"></app-item-page>
     <app-suggestions-page [entityInstanceList]="entityInstanceList" *ngIf="type === 'SUG'"></app-suggestions-page>
   </div>

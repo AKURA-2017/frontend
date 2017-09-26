@@ -36,7 +36,7 @@ export class ResultsPageComponent implements OnInit {
 
       this.productService.search(this.search)
         .subscribe((data) => {
-          console.log(data);
+         
           this.loading = false;
           if (data.entityInstanceList) {
 

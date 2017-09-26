@@ -10,6 +10,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { ResultsPageComponent } from './pages/results-page/results-page.component';
 import { ItemPageComponent } from './pages/results-page/item-page/item-page.component';
 import { SuggestionsPageComponent } from './pages/results-page/suggestions-page/suggestions-page.component';
+import { ProgressBarComponent } from './pages/results-page/item-page/progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SuggestionsPageComponent } from './pages/results-page/suggestions-page/
     LandingPageComponent,
     ResultsPageComponent,
     ItemPageComponent,
-    SuggestionsPageComponent
+    SuggestionsPageComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,

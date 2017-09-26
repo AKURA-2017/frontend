@@ -12,5 +12,16 @@ export class ItemPageComponent implements OnInit {
 
   ngOnInit() {
   }
+  getCount(arr) {
+    let count = 0;
+    arr.map((data) => {
+      count += data.count;
+    });
+    return count;
+  }
+
+  getName(count) {
+    return count == 1 ? 'Person' : 'People';
+  }
 
 }

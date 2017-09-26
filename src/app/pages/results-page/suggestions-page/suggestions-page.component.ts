@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-suggestions-page',
@@ -7,9 +8,13 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SuggestionsPageComponent implements OnInit {
   @Input() entityInstanceList: Array<any> = [];
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  navigate(search){
+    this.router.navigate(['/results'], { queryParams: { search:  search } });
   }
 
 }
