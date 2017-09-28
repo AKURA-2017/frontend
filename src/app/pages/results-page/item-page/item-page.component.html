@@ -38,7 +38,7 @@
           <span class="label label-success"> PROS</span>
         </h6>
         <br>
-        <div style="text-align:center" *ngIf="product?.pros.length == 0">
+        <div style="text-align:center" *ngIf="product?.pros?.length == 0">
           <i class="fa fa-list" aria-hidden="true" style="font-size:400%;color:#E0E0E0;    width: auto;margin-bottom:2%"></i>
           <br>
           <h6 style="color:#BDBDBD"> No PROS found for this Product</h6>
@@ -62,7 +62,7 @@
           <span class="label label-danger"> CONS</span>
         </h6>
         <br>
-        <div style="text-align:center" *ngIf="product?.cons.length == 0">
+        <div style="text-align:center" *ngIf="product?.cons?.length == 0">
           <i class="fa fa-list" aria-hidden="true" style="font-size:400%;color:#E0E0E0;    width: auto;margin-bottom:2%"></i>
           <br>
           <h6 style="color:#BDBDBD"> No CONS found for this Product</h6>
