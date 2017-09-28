@@ -11,6 +11,9 @@ import { ResultsPageComponent } from './pages/results-page/results-page.componen
 import { ItemPageComponent } from './pages/results-page/item-page/item-page.component';
 import { SuggestionsPageComponent } from './pages/results-page/suggestions-page/suggestions-page.component';
 import { ProgressBarComponent } from './pages/results-page/item-page/progress-bar/progress-bar.component';
+import { ParticlesModule } from 'angular-particle';
+import { FeatureSubComponent } from './pages/results-page/item-page/feature-sub/feature-sub.component';
+import { FeatureComponent } from './pages/results-page/item-page/feature/feature.component';
 
 @NgModule({
   declarations: [
@@ -19,13 +22,16 @@ import { ProgressBarComponent } from './pages/results-page/item-page/progress-ba
     ResultsPageComponent,
     ItemPageComponent,
     SuggestionsPageComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    FeatureSubComponent,
+    FeatureComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     Routing,
+    ParticlesModule
   ],
   providers: [
     ProductService
