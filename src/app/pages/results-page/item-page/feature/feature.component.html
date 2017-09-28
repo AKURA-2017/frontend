@@ -18,6 +18,6 @@
 
   <div *ngIf="getCount(x.comparisons?.worseThan) > 0">
     <!-- {{getCount(x.comparisons?.worseThan)}} {{getName(getCount(x.comparisons?.worseThan))}} says  -->
-    <app-feature-sub [arr]="x.comparisons?.betterThan" [total]="getCount(x.comparisons?.worseThan)" type="Nay"></app-feature-sub>
+    <app-feature-sub [arr]="x.comparisons?.worseThan" [total]="getCount(x.comparisons?.worseThan)" type="Nay"></app-feature-sub>
   </div>
 </div>
