@@ -1,0 +1,23 @@
+<h6 (click)="changeStatus()" style="margin-bottom:0px" style="    padding-right: 4%;    padding-left: 2%;">
+  <span [hidden]="!hidden"><span  class="label label-success">Yay</span> <small style="color:inherit;font-weight: inherit;">x</small>{{getCount(x.comparisons?.betterThan)}}
+  &nbsp; &nbsp;
+  <span  class="label label-default">Nay</span> <small style="color:inherit;font-weight: inherit;">x</small>{{getCount(x.comparisons?.worseThan)}}
+  </span>
+
+  <i class="fa  pull-right" [ngClass]="{'fa-chevron-down': !hidden, 'fa-chevron-right':hidden}" style="color:#BDBDBD;padding-left:2%" ></i>
+  <br>
+</h6>
+
+<div [hidden]="hidden">
+  <div *ngIf="getCount(x.comparisons?.betterThan) > 0">
+    <!-- {{getCount(x.comparisons?.betterThan)}} {{getName(getCount(x.comparisons?.betterThan))}} says  -->
+
+    <app-feature-sub [total]="getCount(x.comparisons?.betterThan)" [arr]="x.comparisons?.betterThan" type="Yay"></app-feature-sub>
+
+  </div>
+
+  <div *ngIf="getCount(x.comparisons?.worseThan) > 0">
+    <!-- {{getCount(x.comparisons?.worseThan)}} {{getName(getCount(x.comparisons?.worseThan))}} says  -->
+    <app-feature-sub [arr]="x.comparisons?.betterThan" [total]="getCount(x.comparisons?.worseThan)" type="Nay"></app-feature-sub>
+  </div>
+</div>

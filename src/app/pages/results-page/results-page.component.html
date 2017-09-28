@@ -1,4 +1,4 @@
-<div class="row" style="background-color:white">
+<div class="row" style="background-color:rgba(255,255,255,0.95)">
   <div class="container">
     <div class="row">
       <div class="col-md-2">
@@ -19,15 +19,17 @@
         </form>
       </div>
     </div>
-   <br>
+    <br>
   </div>
 </div>
-<div class="row"  >
+<div class="row">
   <div class="container">
 
-    <div *ngIf="loading" class="spinner">
-      <div class="double-bounce1"></div>
-      <div class="double-bounce2"></div>
+    <div *ngIf="loading" style="padding-top:30%">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
     </div>
     <app-item-page *ngIf="type === 'ITEM'" [product]="product"></app-item-page>
     <app-suggestions-page [entityInstanceList]="entityInstanceList" *ngIf="type === 'SUG'"></app-suggestions-page>
