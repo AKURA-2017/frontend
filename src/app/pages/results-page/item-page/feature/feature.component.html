@@ -1,7 +1,7 @@
 <h6 (click)="changeStatus()" style="margin-bottom:0px" style="    padding-right: 4%;    padding-left: 2%;">
-  <span [hidden]="!hidden"><span  class="label label-success">Yay</span> <small style="color:inherit;font-weight: inherit;">x</small>{{getCount(x.comparisons?.betterThan)}}
+  <span [hidden]="!hidden"><span  class="label label-success"><i class="fa fa-thumbs-up" aria-hidden="true"></i></span> <small style="color:inherit;font-weight: inherit;">x</small>{{getCount(x.comparisons?.betterThan)}}
   &nbsp; &nbsp;
-  <span  class="label label-default">Nay</span> <small style="color:inherit;font-weight: inherit;">x</small>{{getCount(x.comparisons?.worseThan)}}
+  <span  class="label label-danger"><i class="fa fa-thumbs-down" aria-hidden="true"></i></span> <small style="color:inherit;font-weight: inherit;">x</small>{{getCount(x.comparisons?.worseThan)}}
   </span>
 
   <i class="fa  pull-right" [ngClass]="{'fa-chevron-down': !hidden, 'fa-chevron-right':hidden}" style="color:#BDBDBD;padding-left:2%" ></i>
