@@ -1,28 +1,32 @@
-<table class="table table-hover table-condensed" style="line-height: 200%;text-align:left">
-    <tbody>
-      <tr  >
-        <td colspan="3" style="border-top:transparent;text-align:left;    padding: 10px;">
-          <h6 style="margin-bottom:0px">
-            <span class="label " [ngClass]="{'label-success': type=='Yay', 'label-danger':type=='Nay'}">{{type=='Yay'?'Better Than': 'Worse Than'}}</span> 
-           
-          </h6>
-        </td>
-        <td style="border-top:transparent;text-align:left;    padding: 10px;">
-          <h6 style="margin-bottom:0px">
-            <!-- <i class="fa fa-chevron-down pull-right" style="color:#BDBDBD"></i> -->
-          </h6>
-        </td>
-      </tr>
-    </tbody>
-    <tbody [hidden]="hidden">
-      <tr *ngFor="let prod of arr">
+<table class="table table-hover table-condensed" style="line-height: 200%;text-align:left" *ngIf="getArrCount()> 0">
+  <tbody>
+    <tr>
+      <td colspan="3" style="border-top:transparent;text-align:left;    padding: 10px;">
+        <h6 style="margin-bottom:0px">
+          <span class="label " [ngClass]="{'label-success': type=='Yay', 'label-danger':type=='Nay'}">{{type=='Yay'?'Better Than': 'Worse Than'}}</span>
+
+        </h6>
+      </td>
+      <td style="border-top:transparent;text-align:left;    padding: 10px;">
+        <h6 style="margin-bottom:0px">
+          <!-- <i class="fa fa-chevron-down pull-right" style="color:#BDBDBD"></i> -->
+        </h6>
+      </td>
+    </tr>
+  </tbody>
+  <tbody [hidden]="hidden">
+    <ng-container *ngFor="let prod of arr">
+      <tr *ngIf="entity !== prod.name">
+
         <td style="text-align:left"> {{prod.name}}</td>
-        <td> <span class="" style="width:30px">x{{prod.count}} </span></td>
+        <td>
+          <span class="" style="width:30px">x{{prod.count}} </span>
+        </td>
         <td style="text-align: left;padding:2.4%;    width: 100px;">
           <app-progress-bar [defaultColor]="type=='Yay'?'progress-bar-success':'progress-bar-danger'" [score]="(prod.count /total)*100 |  number:'2.0-0' "></app-progress-bar>
         </td>
         <td style="text-align: left;width:70px">{{(prod.count /total)*100 | number:'2.0-0'}}%</td>
       </tr>
-
-    </tbody>
-  </table>
+    </ng-container>
+  </tbody>
+</table>

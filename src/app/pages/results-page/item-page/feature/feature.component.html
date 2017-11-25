@@ -12,12 +12,12 @@
   <div *ngIf="getCount(x.comparisons?.betterThan) > 0">
     <!-- {{getCount(x.comparisons?.betterThan)}} {{getName(getCount(x.comparisons?.betterThan))}} says  -->
 
-    <app-feature-sub [total]="getCount(x.comparisons?.betterThan)" [arr]="x.comparisons?.betterThan" type="Yay"></app-feature-sub>
+    <app-feature-sub [entity]="entity"  [total]="getCount(x.comparisons?.betterThan)" [arr]="x.comparisons?.betterThan" type="Yay"></app-feature-sub>
 
   </div>
 
   <div *ngIf="getCount(x.comparisons?.worseThan) > 0">
     <!-- {{getCount(x.comparisons?.worseThan)}} {{getName(getCount(x.comparisons?.worseThan))}} says  -->
-    <app-feature-sub [arr]="x.comparisons?.worseThan" [total]="getCount(x.comparisons?.worseThan)" type="Nay"></app-feature-sub>
+    <app-feature-sub [entity]="entity" [arr]="x.comparisons?.worseThan" [total]="getCount(x.comparisons?.worseThan)" type="Nay"></app-feature-sub>
   </div>
 </div>

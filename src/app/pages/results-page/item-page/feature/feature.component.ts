@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FeatureComponent implements OnInit {
   hidden: Boolean = true;
   @Input() x = {}
+  @Input() entity = "";
   constructor() { }
 
   ngOnInit() {
@@ -15,7 +16,9 @@ export class FeatureComponent implements OnInit {
 
   getCount(arr) {
     let count = 0;
-    arr.map((data) => {
+    arr.filter((prod) => {
+      return (prod.name !== this.entity);
+    }).map((data) => {
       count += data.count;
     });
     return count;
