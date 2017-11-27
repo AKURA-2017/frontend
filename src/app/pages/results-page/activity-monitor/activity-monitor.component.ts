@@ -68,20 +68,20 @@ export class ActivityMonitorComponent implements OnInit {
   }
 
   checkType(str, type) {
-    let tmp = str.split(type);
+    const tmp = str.split(type);
     if (tmp.length > 1) {
-      console.log(tmp[1]);
-      let engine = tmp[1].split('##$$$');
+      // console.log(tmp[1]);
+      const engine = tmp[1].split('##$$$');
       if (type === '#JSON-') {
         engine[1] = JSON.stringify(this.getJSON(engine[1]), null, '\t');
         // console.log(engine[1]);
       }
-      console.log(engine[0]);
+      // console.log(engine[0]);
 
       return {
         result: this.engines.indexOf(engine[0]) > -1 ? engine[1] : engine[0],
         type: type,
-        engine:this.engines.indexOf(engine[0]) > -1 ? engine[0] : engine[1]
+        engine: this.engines.indexOf(engine[0]) > -1 ? engine[0] : engine[1]
       };
     } else {
       return false;
@@ -92,7 +92,7 @@ export class ActivityMonitorComponent implements OnInit {
   getJSON(str) {
     let jsn = '';
     try {
-      let tmp = JSON.parse(str);
+      const tmp = JSON.parse(str);
       jsn = tmp;
     } catch (e) {
       console.log('came to catch');
