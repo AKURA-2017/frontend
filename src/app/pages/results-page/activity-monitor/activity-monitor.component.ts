@@ -32,7 +32,7 @@ export class ActivityMonitorComponent implements OnInit {
       });
 
     this.socket.on('OVERALL', (obj) => {
-      console.log('socket emitted', obj);
+      console.log('socket emitted');
       let tmp;
       // check title
       if (this.checkType(obj, '#TITLE-')) {
@@ -49,7 +49,7 @@ export class ActivityMonitorComponent implements OnInit {
         tmp = this.checkType(obj, '#PROCESS-');
       }
       this.logs.push(tmp);
-      console.log(this.logs);
+      
     });
   }
 
@@ -98,7 +98,7 @@ export class ActivityMonitorComponent implements OnInit {
       console.log('came to catch');
       jsn = str;
     }
-    console.log('JSON', jsn);
+ 
     return jsn;
   }
 
