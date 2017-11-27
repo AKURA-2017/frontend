@@ -93,10 +93,10 @@
           <tbody>
             <tr *ngFor="let x of product?.comparisons?.betterThan">
               <td style="text-align:left"> {{x.name}} </td>
-              <td style="text-align: left;padding:2.4%;    width: 100px;">
-                <app-progress-bar [score]="(x.count /getCount(product?.comparisons?.betterThan))*100 |  number:'2.0-0' "></app-progress-bar>
-              </td>
-              <td style="text-align: left;">{{(x.count /getCount(product?.comparisons?.betterThan))*100 | number:'2.0-0'}}%</td>
+              <!--<td style="text-align: left;padding:2.4%;    width: 100px;">-->
+                <!--<app-progress-bar [score]="(x.count /getCount(product?.comparisons?.betterThan))*100 |  number:'2.0-0' "></app-progress-bar>-->
+              <!--</td>-->
+              <!--<td style="text-align: left;">{{(x.count /getCount(product?.comparisons?.betterThan))*100 | number:'2.0-0'}}%</td>-->
             </tr>
           </tbody>
         </table>
@@ -117,10 +117,10 @@
           <tbody>
             <tr *ngFor="let x of product?.comparisons?.worseThan">
               <td style="text-align:left"> {{x.name}} </td>
-              <td style="text-align: left;padding:2.4%;    width: 100px;">
-                <app-progress-bar [score]="(x.count /getCount(product?.comparisons?.worseThan))*100 |  number:'2.0-0' "></app-progress-bar>
-              </td>
-              <td style="text-align: left;">{{(x.count /getCount(product?.comparisons?.worseThan)) *100 | number:'2.0-0'}}%</td>
+              <!--<td style="text-align: left;padding:2.4%;    width: 100px;">-->
+                <!--<app-progress-bar [score]="(x.count /getCount(product?.comparisons?.worseThan))*100 |  number:'2.0-0' "></app-progress-bar>-->
+              <!--</td>-->
+              <!--<td style="text-align: left;">{{(x.count /getCount(product?.comparisons?.worseThan)) *100 | number:'2.0-0'}}%</td>-->
             </tr>
           </tbody>
         </table>
@@ -153,13 +153,13 @@
 
             </div>
             <div class="row">
-              <div class="col-md-10" style="padding-top:1.6%">
+              <!--<div class="col-md-10" style="padding-top:1.6%">-->
 
-                <app-progress-bar [score]="x?.avg_baseScore*100 |  number:'2.0-0' "></app-progress-bar>
-              </div>
-              <div class="col-md-2">
-                <h6 style="display:inline">{{x?.avg_baseScore*100 | number:'2.0-0'}}%</h6>
-              </div>
+                <!--<app-progress-bar [score]="x?.avg_baseScore*100 |  number:'2.0-0' "></app-progress-bar>-->
+              <!--</div>-->
+              <!--<div class="col-md-2">-->
+                <!--<h6 style="display:inline">{{x?.avg_baseScore*100 | number:'2.0-0'}}%</h6>-->
+              <!--</div>-->
             </div>
 
 
