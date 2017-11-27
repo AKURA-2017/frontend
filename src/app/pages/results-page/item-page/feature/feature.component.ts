@@ -19,7 +19,7 @@ export class FeatureComponent implements OnInit {
     arr.filter((prod) => {
       return (prod.name !== this.entity);
     }).map((data) => {
-      count += data.count;
+      count++;
     });
     return count;
   }
