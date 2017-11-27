@@ -19,13 +19,13 @@
       <tr *ngIf="entity !== prod.name">
 
         <td style="text-align:left"> {{prod.name}}</td>
-        <td>
-          <span class="" style="width:30px">x{{prod.count}} </span>
-        </td>
-        <td style="text-align: left;padding:2.4%;    width: 100px;">
-          <app-progress-bar [defaultColor]="type=='Yay'?'progress-bar-success':'progress-bar-danger'" [score]="(prod.count /total)*100 |  number:'2.0-0' "></app-progress-bar>
-        </td>
-        <td style="text-align: left;width:70px">{{(prod.count /total)*100 | number:'2.0-0'}}%</td>
+        <!--<td>-->
+          <!--<span class="" style="width:30px">x{{prod.count}} </span>-->
+        <!--</td>-->
+        <!--<td style="text-align: left;padding:2.4%;    width: 100px;">-->
+          <!--<app-progress-bar [defaultColor]="type=='Yay'?'progress-bar-success':'progress-bar-danger'" [score]="(prod.count /total)*100 |  number:'2.0-0' "></app-progress-bar>-->
+        <!--</td>-->
+        <!--<td style="text-align: left;width:70px">{{(prod.count /total)*100 | number:'2.0-0'}}%</td>-->
       </tr>
     </ng-container>
   </tbody>
