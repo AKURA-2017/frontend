@@ -11,8 +11,8 @@
             <input name="search" [(ngModel)]="search" style="border: 2px solid lightgrey !important;" type="text" value="" placeholder="Search Product "
               class="form-control">
             <span class="input-group-addon" (click)="searchItemNav()">
-          <i class="fa fa-search"></i>
-        </span>
+              <i class="fa fa-search"></i>
+            </span>
           </div>
 
           <button type="submit" hidden></button>
@@ -31,8 +31,12 @@
         <div class="double-bounce2"></div>
       </div>
     </div>
-    <app-item-page *ngIf="type === 'ITEM'" [product]="product"></app-item-page>
-    <app-suggestions-page [entityInstanceList]="entityInstanceList" *ngIf="type === 'SUG'"></app-suggestions-page>
+
+      <app-item-page *ngIf="type === 'ITEM'" [product]="product"></app-item-page>
+      <app-suggestions-page [entityInstanceList]="entityInstanceList" *ngIf="type === 'SUG'"></app-suggestions-page>
+      <p style="text-align:center"> Interested to see How we work? Click <a routerLink="/activity">here</a></p>
   </div>
+
+  
 
 </div>

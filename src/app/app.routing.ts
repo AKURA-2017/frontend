@@ -2,6 +2,7 @@ import { ResultsPageComponent } from './pages/results-page/results-page.componen
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 
 import { Routes, RouterModule } from '@angular/router';
+import { ActivityMonitorComponent } from './pages/results-page/activity-monitor/activity-monitor.component';
 const APP_ROUTES: Routes = [
     {
         path: '',
@@ -10,6 +11,10 @@ const APP_ROUTES: Routes = [
       {
         path: 'results',
         component: ResultsPageComponent,
+    },
+    {
+        path: 'activity',
+        component: ActivityMonitorComponent,
     }
 ];
 

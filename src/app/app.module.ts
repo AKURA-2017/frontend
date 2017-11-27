@@ -14,6 +14,8 @@ import { ProgressBarComponent } from './pages/results-page/item-page/progress-ba
 import { ParticlesModule } from 'angular-particle';
 import { FeatureSubComponent } from './pages/results-page/item-page/feature-sub/feature-sub.component';
 import { FeatureComponent } from './pages/results-page/item-page/feature/feature.component';
+import { ActivityMonitorComponent } from './pages/results-page/activity-monitor/activity-monitor.component';
+import { HighlightJsModule, HighlightJsService } from 'angular2-highlight-js';
 
 @NgModule({
   declarations: [
@@ -24,17 +26,20 @@ import { FeatureComponent } from './pages/results-page/item-page/feature/feature
     SuggestionsPageComponent,
     ProgressBarComponent,
     FeatureSubComponent,
-    FeatureComponent
+    FeatureComponent,
+    ActivityMonitorComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     Routing,
-    ParticlesModule
+    ParticlesModule,
+    HighlightJsModule
   ],
   providers: [
-    ProductService
+    ProductService,
+    HighlightJsService
   ],
   bootstrap: [AppComponent]
 })

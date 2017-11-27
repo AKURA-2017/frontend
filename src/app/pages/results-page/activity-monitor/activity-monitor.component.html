@@ -1,0 +1,65 @@
+<div class="row" style="background-color:rgba(255,255,255,0.95)">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+        <img class="img img-responsive" style="width: 100%;" src="./assets/img/rev-logo.png" alt="" (click)="navigate()">
+      </div>
+      <div class="col-md-10" style="padding-top:3%">
+        <!--<h3>An Efficient review engine for you</h3>-->
+        <form (ngSubmit)="searchItem()">
+          <div class="input-group form-group-no-border">
+            <input name="search" [(ngModel)]="search" style="border: 2px solid lightgrey !important;" type="text" value="" placeholder="Search Product "
+              class="form-control">
+            <span class="input-group-addon" (click)="searchItem()">
+              <i class="fa fa-search"></i>
+            </span>
+          </div>
+
+          <button type="submit" hidden></button>
+        </form>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12" style="padding:4%">
+    
+    <p> Here is a little insight on how the rev engine does it's magic to collect the data.</p>
+
+    <div class="card" *ngIf="logs.length > 0">
+      <div class="card-block ">
+        <table class="table table-hover table-condensed table-responsive" style="text-align:left">
+          <tr *ngFor="let x of logs">
+            <td style="text-align:left;width:150px;">
+              <span class="label {{classMap[x.engine]}}"> {{x.engine}} </span>
+            </td>
+           
+            <td style="text-align:left;">
+              <div *ngIf="x.type !== '#JSON-'">
+                {{x.result}}
+              </div>
+
+              <div *ngIf="x.type === '#JSON-'">
+                
+
+                <section highlight-js-content>
+
+                  <code [innerHTML]="x.result" class="javascript highlight"></code>
+                </section>
+              </div>
+
+
+
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+
+  </div>
+
+
+
+</div>
