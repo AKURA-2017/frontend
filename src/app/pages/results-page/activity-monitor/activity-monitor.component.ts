@@ -23,7 +23,7 @@ export class ActivityMonitorComponent implements OnInit {
   };
 
   engines = ['j2owl', 'integration', 'retrieval', 'NLU Engine', 'System', 'Data Extarction'];
-  socket = io('http://35.198.251.53:3000');
+  socket = io('http://localhost:3000');
   constructor(private router: Router, private route: ActivatedRoute, private productService: ProductService) {
     this.route
       .queryParams
